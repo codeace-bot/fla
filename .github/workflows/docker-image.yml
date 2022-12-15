@@ -34,4 +34,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd /root/flask/ && docker compose up -d
+        script: cd /root/fla/ && git pull && docker compose up -d
