@@ -34,4 +34,9 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd /root/fla/ && git pull && docker compose up -d
+        script: |
+          cd /root/fla/
+          eval `ssh-agent -s`
+          ssh-add /root/deploy
+          git pull
+          docker compose up -d
