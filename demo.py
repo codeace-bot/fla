@@ -3,7 +3,6 @@ app = Flask(__name__)
   
 @app.route('/')
 def hello():
-    a=10
     return "Hell World"
   
   
