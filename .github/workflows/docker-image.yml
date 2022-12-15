@@ -39,4 +39,4 @@ jobs:
           eval `ssh-agent -s`
           ssh-add /root/deploy
           git pull
-          docker compose up -d
+          docker compose up -d --force-recreate --no-deps --build web
