@@ -26,3 +26,13 @@ jobs:
       with:
           push: true
           tags: ghcr.io/${{ github.repository }}
+          
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: cd /root/flask/ && docker-compose down && docker-compose build --pull && docker-compose up -d
+
