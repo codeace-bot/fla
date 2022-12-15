@@ -34,8 +34,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: |
-          docker compose stop
-          docker compose rm -f
-          docker compose pull
-          docker compose up -d
+        script: cd /root/flask/ && docker compose down && docker compose build --pull && docker compose up -d
